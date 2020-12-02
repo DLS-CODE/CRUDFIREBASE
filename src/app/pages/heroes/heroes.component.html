@@ -1,0 +1,59 @@
+<h1>Listado de Heroes</h1>
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button class="btn btn-primary" [routerLink]="[ '/heroe','nuevo' ]">
+      <i class="fa fa-plus"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+
+
+<table class="table mt-4 animate__animated animate__fadeIn">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Poder</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Herramientas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let heroe of heroes, let i = index">
+      <th scope="row"> {{ i }} </th>
+      <td>{{ heroe.id }}</td>
+      <td>{{heroe.nombre}}</td>
+      <td>{{heroe.poder}}</td>
+      <td >{{heroe.estado}}</td>
+      <td>
+        <button type="button" class="btn btn-danger mr-2" (click)="borrar(i, heroe.id)">
+          <i class="fas fa-trash"></i>
+        </button>
+
+        <button type="button" class="btn btn-info mr-2" [routerLink]="[ '/heroe', heroe.id ]" >
+          <i class="fas fa-edit"></i>
+        </button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-warning text-center mt-3" *ngIf="noRegistros">
+  <h4 class="alert-heading">No hay registros</h4>
+  <p>
+    <i class="fa fa-exclamation fa-2x"></i>
+  </p>
+</div>
+
+<div class="alert alert-info text-center mt-3" *ngIf="loading">
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">Espere por favor</p>
+</div>

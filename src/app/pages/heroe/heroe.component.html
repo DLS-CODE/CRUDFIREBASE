@@ -1,0 +1,53 @@
+<h1>Heroe <small>Nombre Heroe</small> </h1>
+<div class="row text-right">
+    <div class=" col">
+        <button class="btn btn-danger" [routerLink]="[ '/heroes' ]"><i class="fas fa-arrow-left"></i></button>
+    </div>
+</div>
+
+<div class=" row animated fadeIn faster">
+    <div class="col">
+        <form [formGroup]="forma" (ngSubmit)="enviar()">
+            <div class="form-group">
+              <label>ID Firebase</label>
+              <input 
+                    type="id-fireBase" 
+                    class="form-control" 
+                    id="id-fireBase" 
+                    placeholder="ID Firebase" 
+                    formControlName="idFirebase" >
+            </div>
+
+            <div class="form-group">
+              <label>Nombre</label>
+              <input 
+                    type="text" 
+                    class="form-control" 
+                    formControlName = "nombre"
+                    placeholder="Nombre">
+            </div>
+
+            <div class="form-group">
+              <label>Poder</label>
+              <input 
+                    type="text" 
+                    class="form-control" 
+                    formControlName = "poder" 
+                    placeholder="Poder"
+                  >
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"  name="estado" id="inlineRadio1" value="Vivo" formControlName = "estado">
+              <label class="form-check-label" for="inlineRadio1">Vivo</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio"  name="estado" id="inlineRadio2" value="Muerto" formControlName = "estado">
+              <label class="form-check-label" for="inlineRadio2">Muerto</label>
+            </div>
+            <br>
+            <br>
+            <button  class="btn btn-primary btn-block" type="submit">Enviar</button>
+          </form>
+    </div>
+</div>
